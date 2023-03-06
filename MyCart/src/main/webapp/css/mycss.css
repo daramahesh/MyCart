@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+
+.nav-bg{
+	background: #00C853!important;
+}
+.admin .card{
+	border:2px solid green;
+	
+}
+
+.admin .card:hover{
+	
+	background-color: #00BCD4;
+	cursor:col-resize;
+}
