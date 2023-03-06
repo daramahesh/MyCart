@@ -1,16 +1,29 @@
-<%@page import="com.mycart.helper.FactoryProvider"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+   <%--  <%@include file="component/cssandjavascript.jsp %> --%>
+    
+<!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>home page</title>
+ <%@include file="component/cssandjavascript.jsp"%>
+ 
+ 
+</head>
 <body>
-<h2>Hello World!</h2>
 
-<h1>creating session factory object</h1>
+<%@include  file="component/navbar.jsp" %>
 
-<%
-out.println(FactoryProvider.getFactory());
+<img height="100px"  width="1500px" class="img-fluid" alt="error could not load image" src="images/mark1.jpg">
 
-%>
-<br>
-<a href="register.jsp">Register</a><br>
-<a href="login.jsp">Login</a>
+
+
+
+
+
+
+
 </body>
 </html>

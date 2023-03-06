@@ -1,10 +1,11 @@
-<%@page import="org.erragada.entity.UserReg" %>
+ <%@page import="com.mycart.entities.Users" %>
+
 <% 
 
-UserReg user1=(UserReg)session.getAttribute("current-user");
+Users user1=(Users)session.getAttribute("current-user");
 
 
-%>
+%> 
 
 
 
@@ -70,7 +71,7 @@ UserReg user1=(UserReg)session.getAttribute("current-user");
     	 
     	   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#!"><%=user1.getName() %></a>
+          <a class="nav-link active" aria-current="page" href="#!"><%-- <%=user1.getName() %> --%></a>
         </li>
           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="logoutservlet">logout</a>

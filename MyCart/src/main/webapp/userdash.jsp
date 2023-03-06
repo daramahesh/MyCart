@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h1>this is normal panel</h1>
+iojijasoikjoiazkoi
 </body>
 </html>

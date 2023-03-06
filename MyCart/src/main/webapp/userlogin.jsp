@@ -19,10 +19,10 @@
 				<div class="card-body">
 				<%@include file="component/messege.jsp" %>
 
-					<form>
+					<form action="LoginServ" method="post">
 						<div class="form-group">
-							<label for="exampleInputEmail1">username</label> <input
-								name="username" type="email" class="form-control"
+							<label for="exampleInputEmail1">email</label> <input
+								name="email" type="email" class="form-control"
 								id="exampleInputEmail1" aria-describedby="emailHelp"
 								placeholder="Enter username">
 						</div>

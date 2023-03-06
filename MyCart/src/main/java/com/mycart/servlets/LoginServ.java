@@ -34,7 +34,7 @@ public class LoginServ extends HttpServlet {
 			
 			if(user==null) {
 				session.setAttribute("msg", "ivalid email or password");
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("userlogin.jsp");
 			}else {
 				out.println("<h2>Welcome " + user.getUserName() + "</h2>");
 			}
@@ -42,11 +42,13 @@ public class LoginServ extends HttpServlet {
 			session.setAttribute("current_user",user );
 			
 			if(user.getUserType().equals("admin")) {
+				//out.println("<h2>Welcome " + user.getUserName() + "</h2>");
+
 				//admin
-				response.sendRedirect("admin.jsp");
+				response.sendRedirect("userdash.jsp");
 			}else if (user.getUserType().equals("normal")) {
 				
-				response.sendRedirect("normal.jsp");
+				//response.sendRedirect("userdash.jsp");
 			}else {
 				out.println("we have not identified user type");
 			}

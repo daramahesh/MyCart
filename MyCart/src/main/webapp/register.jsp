@@ -1,30 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>registration page</title>
 </head>
 <body>
+	<%@include file="component/navbar.jsp"%>
+	<%@include file="component/cssandjavascript.jsp"%>
 
-   <form action="RegisterServlet" method="post"> <br>
-       Enter username: <input type="text" name="username"> <br>
-	   Enter userEmail: <input type="text" name="useremail"> <br>
-	   Enter userPassword: <input type="password" name="userpassword"><br>
-       Enter userPhone: <input type="number" name="userphone"><br>
-       Enter userAddress: <input type="text" name="useraddress"><br>
-       <input type="submit" value="register">
-   </form>
-   
-   <%
-      String message = (String)session.getAttribute("message");
-      if(message!=null){
-      out.println(message);
-      } 
-   %>
-   <br>
-   <a href="login.jsp">login</a>
+
+	<div class="row mt-5">
+		<div class="col-md-4 offset-md-4">
+			<div class="card">
+				<div class="card-body">
+
+    <%@include file="component/messege.jsp" %>
+
+			<h3 class="text-center my-3">Enter your deatail</h3>
+
+					<form action="RegisterServlet" method="post">
+
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">your
+								name </label> <input name="name" type="text" class="form-control"
+								id="exampleFormControlInput2" placeholder="enter your name">
+						</div>
+
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">username
+							</label> <input name="username" type="text" class="form-control"
+								id="exampleFormControlInput3"
+								placeholder="username of your choice">
+						</div>
+
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">your
+								password </label> <input name="password" type="text"
+								class="form-control" id="exampleFormControlInput4"
+								placeholder="password of your choice">
+						</div>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">your
+						mobile number </label> <input name="mobilenum" type="text"
+						class="form-control" id="exampleFormControlInput6"
+						placeholder="mobilenumber">
+				</div>
+
+
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">Email
+						address</label> <input name="email" type="text" class="form-control"
+						id="exampleFormControlInput1" placeholder="name@example.com">
+				</div>
+
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label">current
+						address</label>
+					<textarea name="address" type="text" class="form-control"
+						id="exampleFormControlTextarea1" rows="3"></textarea>
+				</div>
+
+				<div class="text-center my-3">
+					<button class="btn btn-warning">submit</button>
+				</div>
+
+				</form>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+	</div>
 
 </body>
 </html>
