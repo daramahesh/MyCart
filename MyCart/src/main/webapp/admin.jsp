@@ -1,22 +1,23 @@
 
- <%@page import="com.mycart.entities.Users" %>
-<% 
-Users user=(Users)session.getAttribute("current-user");
-if(user==null){
+<%@page import="java.util.Map"%>
+<%@page import="com.mycart.helper.MyHelper"%>
+<%@page import="com.mycart.entities.Users,com.mycart.helper.FactoryProvider"%>
+<%
+Users user = (Users) session.getAttribute("current-user");
+if (user == null) {
 	session.setAttribute("messege", "please login first");
 	response.sendRedirect("userlogin.jsp");
-	
-	return;
-	}
- if(user.getUserType().equals("normal")){
-	
-		session.setAttribute("messege", "you are a normal user access denied");
-		response.sendRedirect("userlogin.jsp");
-		return;
-	
-} 
 
-%> 
+	return;
+}
+if (user.getUserType().equals("normal")) {
+
+	session.setAttribute("messege", "you are a normal user access denied");
+	response.sendRedirect("userlogin.jsp");
+	return;
+
+}
+%>
 
 
 
@@ -40,7 +41,7 @@ if(user==null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>admin profile page</title>
 </head>
 <body>
 
@@ -52,6 +53,13 @@ if(user==null){
 
 			<!-- first box -->
 
+<%
+Map<String,Integer> map1=MyHelper.getCount(FactoryProvider.getFactory());
+
+%>
+
+
+
 			<div class="col-md-4 text-center">
 
 				<div class="card">
@@ -62,7 +70,10 @@ if(user==null){
 
 						</div>
 
-						<h1>users</h1>
+						<h1>users
+						<span><%=map1.get("usercount")%></span>
+						</h1>
+                        
 
 
 					</div>
@@ -86,7 +97,9 @@ if(user==null){
 						</div>
 
 
-						<h1>categories</h1>
+						<h1>categories
+						<span><%=map1.get("categorycount") %></span>
+						</h1>
 
 
 					</div>
@@ -109,7 +122,9 @@ if(user==null){
 						</div>
 
 
-						<h1>products</h1>
+						<h1>products
+						<span><%=map1.get("productcount") %></span>
+						</h1>
 
 
 					</div>
@@ -275,7 +290,7 @@ if(user==null){
 
 
 							<div class="form-group">
-							<h5>choose product category</h5>
+								<h5>choose product category</h5>
 								<select name="catid" class="form-control" id="">
 
 									<%-- <% for(categories g:ll){

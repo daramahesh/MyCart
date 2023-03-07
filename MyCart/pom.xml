@@ -4,7 +4,11 @@
   <groupId>myCart</groupId>
   <artifactId>MyCart</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+    </properties>
+    <version>0.0.1-SNAPSHOT</version>
   <name>MyCart Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>

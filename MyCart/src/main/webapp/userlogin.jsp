@@ -2,6 +2,8 @@
 <%@include file="component/navbar.jsp"%>
 <%@include file="component/cssandjavascript.jsp"%>
 
+
+<title>login page for users</title>
 <div class="container">
 
 	<div class="row">
