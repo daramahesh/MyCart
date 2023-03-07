@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.mycart.entities.Category;
+import com.mycart.helper.FactoryProvider;
 
 
 
@@ -26,15 +27,17 @@ public class CategoryDAO {
 		Transaction tx = session.beginTransaction();
 		
 		int catId = (Integer) session.save(cat);
+		tx.commit();
 		session.close();
 		return catId;
 	}
-	
+	 
 	public List<Category> getCategories() {
 		
 		Session s = this.factory.openSession();
-		Query query = s.createQuery("from category");
+		Query query = s.createQuery("from Category");
 		List<Category> list = query.list();
+		s.close();
 		return list;
 	}
 	

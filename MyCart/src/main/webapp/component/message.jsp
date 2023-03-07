@@ -10,7 +10,7 @@
 <body>
 
 <% 
- String mes=(String)session.getAttribute("user");
+ String mes=(String)session.getAttribute("message");
 if(mes!=null){
 	
 %>
@@ -23,7 +23,7 @@ if(mes!=null){
 	
 <% 
 	
-	session.removeAttribute("user");
+	session.removeAttribute("message");
 	
 }
 

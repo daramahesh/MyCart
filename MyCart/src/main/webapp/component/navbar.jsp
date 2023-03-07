@@ -2,7 +2,7 @@
 
 <% 
 
-Users user1=(Users)session.getAttribute("current-user");
+Users user1=(Users)session.getAttribute("current");
 
 
 %> 
@@ -74,7 +74,7 @@ Users user1=(Users)session.getAttribute("current-user");
           <a class="nav-link active" aria-current="page" href="#!"><%-- <%=user1.getName() %> --%></a>
         </li>
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="logoutservlet">logout</a>
+          <a class="nav-link active" aria-current="page" href="LogoutServlet">logout</a>
         </li>
     </ul>
     	 

@@ -37,9 +37,11 @@ public class ProductOperationServlet extends HttpServlet {
 				String title = request.getParameter("catTitle");
 				String description = request.getParameter("catDescription");
 				
+				//System.out.println(title);
 				Category category = new Category();
 				category.setCategoryTitle(title);
 				category.setCategoryDescription(description);
+				//System.out.println(category);
 				
 				CategoryDAO categoryDao = new CategoryDAO(FactoryProvider.getFactory());
 				int catId = categoryDao.saveCategory(category);
@@ -68,6 +70,9 @@ public class ProductOperationServlet extends HttpServlet {
 				p.setpQuantity(pQuantity);
 				p.setpPhoto(part.getSubmittedFileName());
 				
+				System.out.println(p);
+				
+				
 				CategoryDAO cdao = new CategoryDAO(FactoryProvider.getFactory());
 				Category category = cdao.getCategoryById(catId);
 				
@@ -76,19 +81,21 @@ public class ProductOperationServlet extends HttpServlet {
 				ProductDAO pdao = new ProductDAO(FactoryProvider.getFactory());
 				pdao.saveProduct(p);
 				
-				String path = request.getRealPath("img") + part.getSubmittedFileName();
+				String path = request.getRealPath("images")+ File.separator+"products"+File.separator+part.getSubmittedFileName();
+				System.out.println(path);
 				
-				FileOutputStream fos = new FileOutputStream(path);
-				
-				InputStream is = part.getInputStream();
-				
-				byte [] data = new byte[is.available()];
-				
-				is.read(data);
-				
-				fos.write(data);
-				
-				fos.close();
+				  FileOutputStream fos = new FileOutputStream(path);
+				  
+				  InputStream is = part.getInputStream();
+				  
+				  byte [] data = new byte[is.available()];
+				  
+				  is.read(data);
+				  
+				  fos.write(data);
+				  
+				  fos.close();
+				 
 				
 				HttpSession httpSession = request.getSession();
 				httpSession.setAttribute("message", "product added susseccfully");

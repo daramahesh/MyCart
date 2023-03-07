@@ -1,22 +1,28 @@
 
- <%@page import="com.mycart.entities.Users" %>
+ <%@page import="java.util.List"%>
+<%@page import="com.mycart.helper.FactoryProvider"%>
+<%@page import="com.mycart.dao.CategoryDAO"%>
+<%@page import="com.mycart.entities.Users" %>
+<%@page import="com.mycart.entities.Category" %>
 <% 
-Users user=(Users)session.getAttribute("current-user");
+Users user=(Users)session.getAttribute("current");
 if(user==null){
 	session.setAttribute("messege", "please login first");
 	response.sendRedirect("userlogin.jsp");
 	
 	return;
 	}
- if(user.getUserType().equals("normal")){
+else if(user.getUserType().equals("normal")){
 	
 		session.setAttribute("messege", "you are a normal user access denied");
 		response.sendRedirect("userlogin.jsp");
 		return;
-	
-} 
+	} 
 
-%> 
+else{ %>
+	
+	
+
 
 
 
@@ -49,6 +55,12 @@ if(user==null){
 
 	<div class="container admin">
 		<div class="row mt-4">
+		
+		<div class="container-fluid mt-3">
+		 
+		    <%@include file="component/message.jsp" %>
+		 
+		</div>
 
 			<!-- first box -->
 
@@ -191,19 +203,21 @@ if(user==null){
 				</div>
 				<div class="modal-body">
 
-					<form action="#" method="post">
+					<form action="ProductOperationServlet" method="post">
+					
+					   <input type="hidden" name="operation" value="addcategory">
 
 						<div class="form-group">
-							<input name="title" type="text" placeholder="enter title"
+							<input name="catTitle" type="text" placeholder="enter title"
 								class="form-control">
 
-							<textarea class="form-control" name="description"
+							<textarea class="form-control" name="catDescription"
 								placeholder="enter categorie description"></textarea>
 
 						</div>
 
 						<div class="container text-center mt-4">
-							<button type="button" class="btn btn-primary">update</button>
+							<button type="submit" class="btn btn-outline-success">update</button>
 							<button type="reset" class="btn btn-primary">reset</button>
 
 						</div>
@@ -243,55 +257,57 @@ if(user==null){
 				</div>
 				<div class="modal-body">
 
-					<form action="#" method="post" enctype="multipart/form-data">
+					<form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
+					
+					  <input type="hidden" name="operation" value="addproduct">
 
 						<div class="form-group">
-							<input class="form-control mt-2" name="pname"
+							<input class="form-control mt-2" name="pName"
 								placeholder="enter product name">
 						</div>
 						<div class="form-group">
-							<textarea name="pdesc" placeholder="enter product description"
+							<textarea name="pDesc" placeholder="enter product description"
 								class="form-control mt-2"></textarea>
 						</div>
 						<div class="form-group">
-							<input class="form-control mt-2" name="pprice"
+							<input class="form-control mt-2" name="pPrice"
 								placeholder="enter product price">
 						</div>
 						<div class="form-group">
-							<input class="form-control mt-2" name="pdiscount"
+							<input class="form-control mt-2" name="pDiscount"
 								placeholder="enter product discount">
 						</div>
 						<div class="form-group">
-							<input class="form-control mt-2" name="pquantity"
+							<input class="form-control mt-2" name="pQuantity"
 								placeholder="enter product quantity">
-							<div />
+							</div>
 
 							<!-- getting product category from database dynamically  -->
 							<%
-							/* 			
-								categorydao dao=new categorydao();
-							list<categories> ll=dao.getcategories(); */
+										
+								CategoryDAO cdao = new CategoryDAO(FactoryProvider.getFactory());
+			                    List<Category> list = cdao.getCategories();
 							%>
 
 
 							<div class="form-group">
 							<h5>choose product category</h5>
-								<select name="catid" class="form-control" id="">
+								<select name="catId" class="form-control" id="">
 
-									<%-- <% for(categories g:ll){
+									 <% for(Category c:list){
 							
 							%>
 							
-							<option value="<%= g.gatrcategorieid() %>"><%=g.getcategorieretype() %> </option>
+							<option value="<%= c.getCategoryId() %>"><%=c.getCategoryTitle() %> </option>
 						
 						<% }
 						
-						%> --%>
+						%> 
 
 								</select>
 
 								<div class="form-group">
-									<label>upload product photo</label> <input name="ppic"
+									<label>upload product photo</label> <input name="pPic"
 										class="form-control" type="file" required="required">
 
 								</div>
@@ -309,7 +325,7 @@ if(user==null){
 
 
 							<div class="container text-center mt-4">
-								<button type="button" class="btn btn-primary">update</button>
+								<button type="submit" class="btn btn-primary">update</button>
 								<button type="reset" class="btn btn-primary">reset</button>
 
 							</div>
@@ -325,16 +341,12 @@ if(user==null){
 
 	<!-- 	implementation for product add modal start -->
 
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
+
+
+<% 
+
+}
+
+%> 

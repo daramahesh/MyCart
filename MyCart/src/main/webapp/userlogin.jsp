@@ -17,14 +17,14 @@
 
 
 				<div class="card-body">
-				<%@include file="component/messege.jsp" %>
+				<%@include file="component/message.jsp" %>
 
 					<form action="LoginServ" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">email</label> <input
 								name="email" type="email" class="form-control"
 								id="exampleInputEmail1" aria-describedby="emailHelp"
-								placeholder="Enter username">
+								placeholder="Enter your email">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label> <input

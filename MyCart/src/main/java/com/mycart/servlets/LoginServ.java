@@ -31,7 +31,7 @@ public class LoginServ extends HttpServlet {
 			Users user = userdao.getUserByEmailAndPassword(email, password);
 			
 		    HttpSession session = request.getSession();
-			
+		   
 			if(user==null) {
 				session.setAttribute("msg", "ivalid email or password");
 				response.sendRedirect("userlogin.jsp");
@@ -39,16 +39,15 @@ public class LoginServ extends HttpServlet {
 				out.println("<h2>Welcome " + user.getUserName() + "</h2>");
 			}
 			//login
-			session.setAttribute("current_user",user );
-			
+			 session.setAttribute("current",user);
 			if(user.getUserType().equals("admin")) {
 				//out.println("<h2>Welcome " + user.getUserName() + "</h2>");
 
 				//admin
-				response.sendRedirect("userdash.jsp");
+				response.sendRedirect("admin.jsp");
 			}else if (user.getUserType().equals("normal")) {
 				
-				//response.sendRedirect("userdash.jsp");
+				response.sendRedirect("userdash.jsp");
 			}else {
 				out.println("we have not identified user type");
 			}

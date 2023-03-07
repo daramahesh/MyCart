@@ -1,5 +1,6 @@
 package com.mycart.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Product {
 	private int pPrice;
 	private int pDiscount;
 	private int pQuantity;
-	@ManyToOne
+	@ManyToOne(targetEntity = Product.class,cascade = CascadeType.ALL)
 	private Category category;
 	
 	public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDiscount, int pQuantity, Category category) {

@@ -3,7 +3,9 @@ package com.mycart.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,12 +14,17 @@ import javax.persistence.OneToMany;
 @Entity
 public class Category {
 
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryTitle=" + categoryTitle + ", categoryDescription="
+				+ categoryDescription + ", products=" + products + "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int categoryId;
 	private String categoryTitle;
 	private String categoryDescription;
-	@OneToMany (mappedBy = "category")
+	@OneToMany (mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Product> products = new ArrayList<Product>();
 	
 	public Category(int categoryId, String categoryTitle, String categoryDescription) {

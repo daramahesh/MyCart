@@ -16,17 +16,17 @@
 			<div class="card">
 				<div class="card-body">
 
-    <%@include file="component/messege.jsp" %>
+    <%@include file="component/message.jsp" %>
 
 			<h3 class="text-center my-3">Enter your deatail</h3>
 
 					<form action="RegisterServlet" method="post">
 
-						<div class="mb-3">
+						<!-- <div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">your
 								name </label> <input name="name" type="text" class="form-control"
 								id="exampleFormControlInput2" placeholder="enter your name">
-						</div>
+						</div> -->
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">username
@@ -34,32 +34,34 @@
 								id="exampleFormControlInput3"
 								placeholder="username of your choice">
 						</div>
+						
+						<div class="mb-3">
+					         <label for="exampleFormControlInput1" class="form-label">Email
+						     address</label> <input name="useremail" type="email" class="form-control"
+						     id="exampleFormControlInput1" placeholder="name@example.com">
+				        </div>
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">your
-								password </label> <input name="password" type="text"
+								password </label> <input name="userpassword" type="text"
 								class="form-control" id="exampleFormControlInput4"
 								placeholder="password of your choice">
 						</div>
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">your
-						mobile number </label> <input name="mobilenum" type="text"
+						mobile number </label> <input name="userphone" type="text"
 						class="form-control" id="exampleFormControlInput6"
 						placeholder="mobilenumber">
 				</div>
 
 
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Email
-						address</label> <input name="email" type="text" class="form-control"
-						id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
+				
 
 				<div class="mb-3">
 					<label for="exampleFormControlTextarea1" class="form-label">current
 						address</label>
-					<textarea name="address" type="text" class="form-control"
+					<textarea name="useraddress" type="text" class="form-control"
 						id="exampleFormControlTextarea1" rows="3"></textarea>
 				</div>
 
