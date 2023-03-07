@@ -45,10 +45,10 @@ public class LoginServ extends HttpServlet {
 				//out.println("<h2>Welcome " + user.getUserName() + "</h2>");
 
 				//admin
-				response.sendRedirect("userdash.jsp");
+				response.sendRedirect("admin.jsp");
 			}else if (user.getUserType().equals("normal")) {
 				
-				//response.sendRedirect("userdash.jsp");
+				response.sendRedirect("userdash.jsp");
 			}else {
 				out.println("we have not identified user type");
 			}

@@ -15,7 +15,8 @@ public class LogoutServlet extends HttpServlet {
 		
 		HttpSession httpSession = request.getSession();
 		
-		httpSession.removeAttribute("current_user");
+		httpSession.removeAttribute("current");
+		httpSession.invalidate();
 		response.sendRedirect("login.jsp");
 	}
 
