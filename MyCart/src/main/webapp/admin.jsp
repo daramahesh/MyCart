@@ -1,5 +1,7 @@
 
- <%@page import="java.util.List"%>
+<%@page import="com.mycart.helper.MyHelper"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@page import="com.mycart.helper.FactoryProvider"%>
 <%@page import="com.mycart.dao.CategoryDAO"%>
 <%@page import="com.mycart.entities.Users" %>
@@ -20,24 +22,6 @@ else if(user.getUserType().equals("normal")){
 	} 
 
 else{ %>
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -46,7 +30,7 @@ else{ %>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>admin profile page</title>
 </head>
 <body>
 
@@ -64,6 +48,13 @@ else{ %>
 
 			<!-- first box -->
 
+<%
+Map<String,Long> map1=MyHelper.getCount(FactoryProvider.getFactory());
+
+%>
+
+
+
 			<div class="col-md-4 text-center">
 
 				<div class="card">
@@ -74,7 +65,10 @@ else{ %>
 
 						</div>
 
-						<h1>users</h1>
+						<h1>users
+						<span><%=map1.get("usercount")%></span>
+						</h1>
+                        
 
 
 					</div>
@@ -98,7 +92,9 @@ else{ %>
 						</div>
 
 
-						<h1>categories</h1>
+						<h1>categories
+						<span><%=map1.get("categorycount") %></span>
+						</h1>
 
 
 					</div>
@@ -121,7 +117,9 @@ else{ %>
 						</div>
 
 
-						<h1>products</h1>
+						<h1>products
+						<span><%=map1.get("productcount") %></span>
+						</h1>
 
 
 					</div>
@@ -292,7 +290,7 @@ else{ %>
 
 							<div class="form-group">
 							<h5>choose product category</h5>
-								<select name="catId" class="form-control" id="">
+								<select name="catId" class="form-control" id="myid">
 
 									 <% for(Category c:list){
 							

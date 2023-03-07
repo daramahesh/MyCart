@@ -1,4 +1,4 @@
- <%@page import="com.mycart.entities.Users" %>
+  <%@page import="com.mycart.entities.Users" %>
 
 <% 
 
@@ -63,7 +63,7 @@ Users user1=(Users)session.getAttribute("current");
     	 
     <% 
     	 
-     }
+    }
      
      
      else{

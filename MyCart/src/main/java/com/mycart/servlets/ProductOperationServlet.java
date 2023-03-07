@@ -1,6 +1,7 @@
 package com.mycart.servlets;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -86,7 +87,7 @@ public class ProductOperationServlet extends HttpServlet {
 				
 				  FileOutputStream fos = new FileOutputStream(path);
 				  
-				  InputStream is = part.getInputStream();
+				  InputStream is=part.getInputStream();
 				  
 				  byte [] data = new byte[is.available()];
 				  

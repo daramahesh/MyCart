@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public class Product {
@@ -13,6 +16,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int pId;
+	
 	private String pName;
 	private String pDesc;
 	private String pPhoto;
@@ -20,6 +24,7 @@ public class Product {
 	private int pDiscount;
 	private int pQuantity;
 	@ManyToOne(targetEntity = Product.class,cascade = CascadeType.ALL)
+	@javax.persistence.ForeignKey(name = "cat_id")
 	private Category category;
 	
 	public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDiscount, int pQuantity, Category category) {
