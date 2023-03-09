@@ -1,6 +1,7 @@
 package com.mycart.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,13 +19,17 @@ public class Product {
 	private int pId;
 	
 	private String pName;
+	
+	@Column (length = 2000)
 	private String pDesc;
+	
 	private String pPhoto;
-	private int pPrice;
+	
+	private long pPrice;
 	private int pDiscount;
 	private int pQuantity;
-	@ManyToOne(targetEntity = Product.class,cascade = CascadeType.ALL)
-	@javax.persistence.ForeignKey(name = "cat_id")
+	@ManyToOne()
+	@JoinColumn(name = "category_22")
 	private Category category;
 	
 	public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDiscount, int pQuantity, Category category) {
@@ -52,7 +57,7 @@ public class Product {
 	public String getpPhoto() {
 		return pPhoto;
 	}
-	public int getpPrice() {
+	public long getpPrice() {
 		return pPrice;
 	}
 	public int getpDiscount() {
@@ -73,7 +78,7 @@ public class Product {
 	public void setpPhoto(String pPhoto) {
 		this.pPhoto = pPhoto;
 	}
-	public void setpPrice(int pPrice) {
+	public void setpPrice(long pPrice) {
 		this.pPrice = pPrice;
 	}
 	public void setpDiscount(int pDiscount) {

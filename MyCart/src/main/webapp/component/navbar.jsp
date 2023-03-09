@@ -66,12 +66,15 @@ Users user1=(Users)session.getAttribute("current");
     }
      
      
-     else{
+     else if(user1.getUserType().equals("admin")){
     	 %>
     	 
     	   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#!"><%-- <%=user1.getName() %> --%></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="admin.jsp">profile</a>
         </li>
           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="LogoutServlet">logout</a>
@@ -80,11 +83,28 @@ Users user1=(Users)session.getAttribute("current");
     	 
     <%  }
     	 
+    	
+    	 
+    	 
+    	 else {   %>
+    	             
+    	 
+    	   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#!"><%-- <%=user1.getName() %> --%></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="userdash.jsp">profile</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="LogoutServlet">logout</a>
+        </li>
+    </ul>
+    	 
+    <%  } %>
     	 
     	 
     	 
-    	 
-    	 %>
      
    
      <form class="d-flex" role="search">

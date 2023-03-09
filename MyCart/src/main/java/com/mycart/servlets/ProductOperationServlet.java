@@ -1,14 +1,12 @@
 package com.mycart.servlets;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +19,9 @@ import com.mycart.entities.Category;
 import com.mycart.entities.Product;
 import com.mycart.helper.FactoryProvider;
 
+
 @MultipartConfig
+@WebServlet("/ProductOperationServlet")
 public class ProductOperationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -85,17 +85,19 @@ public class ProductOperationServlet extends HttpServlet {
 				String path = request.getRealPath("images")+ File.separator+"products"+File.separator+part.getSubmittedFileName();
 				System.out.println(path);
 				
-				  FileOutputStream fos = new FileOutputStream(path);
-				  
-				  InputStream is=part.getInputStream();
-				  
-				  byte [] data = new byte[is.available()];
-				  
-				  is.read(data);
-				  
-				  fos.write(data);
-				  
-				  fos.close();
+				/*
+				 * FileOutputStream fos = new FileOutputStream(path);
+				 * 
+				 * InputStream is=part.getInputStream();
+				 * 
+				 * byte [] data = new byte[is.available()];
+				 * 
+				 * is.read(data);
+				 * 
+				 * fos.write(data);
+				 * 
+				 * fos.close();
+				 */
 				 
 				
 				HttpSession httpSession = request.getSession();

@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.mycart.entities.Category;
-import com.mycart.helper.FactoryProvider;
 
 
 

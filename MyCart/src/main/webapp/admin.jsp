@@ -8,7 +8,9 @@
 <%@page import="com.mycart.entities.Category" %>
 <% 
 Users user=(Users)session.getAttribute("current");
-if(user==null){
+//out.print(user);
+
+ if(user==null){
 	session.setAttribute("messege", "please login first");
 	response.sendRedirect("userlogin.jsp");
 	
@@ -21,7 +23,10 @@ else if(user.getUserType().equals("normal")){
 		return;
 	} 
 
-else{ %>
+else 
+
+{
+	%> 
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -290,7 +295,7 @@ Map<String,Long> map1=MyHelper.getCount(FactoryProvider.getFactory());
 
 							<div class="form-group">
 							<h5>choose product category</h5>
-								<select name="catId" class="form-control" id="myid">
+								<select name="catId" class="form-control" id="">
 
 									 <% for(Category c:list){
 							
@@ -347,4 +352,4 @@ Map<String,Long> map1=MyHelper.getCount(FactoryProvider.getFactory());
 
 }
 
-%> 
+%>  

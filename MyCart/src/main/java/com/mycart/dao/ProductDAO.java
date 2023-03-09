@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.mycart.entities.Product;
+import com.mycart.helper.FactoryProvider;
 
 public class ProductDAO {
 
@@ -37,10 +38,16 @@ public class ProductDAO {
 		return f;
 	}
 	
+	/*
+	 * public static void main(String[] args) { ProductDAO vv=new
+	 * ProductDAO(FactoryProvider.getFactory()); Product pro=new Product();
+	 * pro.setpName("redmi"); vv.saveProduct(pro); }
+	 */
+	
 	public List<Product> getAllProducts() {
 		
 		Session session = this.factory.openSession();
-	    Query query = session.createQuery("from product");
+	    Query query = session.createQuery("from Product");
 	    List <Product> list = query.list();
 	    return list;
 	}
@@ -48,7 +55,7 @@ public class ProductDAO {
 public List<Product> getAllProductsById(int cid) {
 		
 		Session session = this.factory.openSession();
-	    Query query = session.createQuery("from product as p where p.category.categoryId=: id");
+	    Query query = session.createQuery("from Product as p where p.category.categoryId=:id");
 	    query.setParameter("id", cid);
 	    List <Product> list = query.list();
 	    return list;

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@page import="com.mycart.entities.Users" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,19 +12,19 @@
 <body>
 	<%@include file="component/navbar.jsp"%>
 	<%@include file="component/cssandjavascript.jsp"%>
-	<div class="container">
-		<div class="row mt-4">
+	<!-- <div class="container">
+		<div class="row mt-4"> -->
 
 <% 
- Users uu=(Users)request.getAttribute("current");
+Users user=(Users)session.getAttribute("current");
 
 %>
 
-			<div class="col-md-2 text-center">
+		 	<div class="col-md-2 text-center">
 				<div class="card">
 					<div class="card-body">
 
-						<p><%=uu.getUserName()%></p>
+						<p><%=user.getUserName()%></p>
 
 					</div>
 
@@ -32,7 +35,7 @@
 				<div class="card">
 					<div class="card-body">
 
-						<p><%=uu.getUserEmail()%></p>
+						<p><%=user.getUserEmail()%></p>
 
 					</div>
 
@@ -43,7 +46,7 @@
 				<div class="card">
 					<div class="card-body">
 
-						<p><%=uu.getUserAddress()%></p>
+						<p><%=user.getUserAddress()%></p>
 
 
 					</div>
@@ -56,7 +59,7 @@
 				<div class="card">
 					<div class="card-body">
 
-						<p><%=uu.getUserPhone() %></p>
+						<p><%=user.getUserPhone() %></p>
 
 
 					</div>
@@ -68,7 +71,7 @@
 				<div class="card">
 					<div class="card-body">
 
-						<p><%=uu.getUserPic()%></p>
+						<p><%=user.getUserPic()%></p>
 
 
 					</div>
@@ -81,6 +84,6 @@
 
 		</div>
 
-	</div>
+	</div> 
 </body>
 </html>
