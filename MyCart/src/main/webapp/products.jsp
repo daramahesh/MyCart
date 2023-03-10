@@ -20,32 +20,27 @@
 
 	<div class="container-fluid mt-2">
 
-		<div class="row">
+		<div class="row mt-2">
 
 			<!--  for fetching products from database -->
 			<%
-			
 			//String id = request.getParameter("category");
-					//out.print(id);
+			//out.print(id);
 			CategoryDAO cdao = new CategoryDAO(FactoryProvider.getFactory());
 			List<Category> ll1 = cdao.getCategories();
 
-				 	
-					ProductDAO pdao = new ProductDAO(FactoryProvider.getFactory());
-					List<Product> mm = pdao.getAllProducts();
+			ProductDAO pdao = new ProductDAO(FactoryProvider.getFactory());
+			List<Product> mm = pdao.getAllProducts();
 
-				/* 	if (id.trim().equals("all")) {
-						mm = pdao.getAllProducts();
-					}
+			/* 	if (id.trim().equals("all")) {
+					mm = pdao.getAllProducts();
+				}
 
-					else {
-						int catidd = Integer.parseInt(id);
+				else {
+					int catidd = Integer.parseInt(id);
 
-						mm = pdao.getAllProductsById(catidd);
-					}		  */
-					
-					
-					
+					mm = pdao.getAllProductsById(catidd);
+				}		  */
 			%>
 
 
@@ -54,7 +49,7 @@
 			<div class=" col-md-2">
 
 				<div class="list-group mt-0">
-					
+
 
 					<%
 					for (Category cc : ll1) {
@@ -77,16 +72,23 @@
 
 
 
-
 			<!--  
  for products -->
-			<div class=" col md-8">
+ 
 
 
-				<div class="row md-4">
+
+ 
+			<div class=" col-md-8">
 
 
-						<div class="card-columns">
+				<div class=" row mt-2">
+
+	
+				<div class="col-md-4"> 
+
+
+					<div class="card-deck">
 
 
 							<%
@@ -100,11 +102,11 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										<%=pp.getpDesc()%>
+										<%=pp.getpName()%>
 									</h5>
 
 									<p class="card-text">
-										<%=pp.getpName()%>
+										<%=pp.getpDesc()%>
 
 									</p>
 
@@ -127,26 +129,22 @@
 
 
 
-
-
-
 						</div>
 
 
 
+					 </div>
 				</div>
 
-
 			</div>
-
 
 
 		</div>
 
 
 
-	</div>
-
+ </div>
+ 
 
 </body>
 </html>

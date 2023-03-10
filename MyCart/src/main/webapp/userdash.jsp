@@ -66,7 +66,7 @@ Users user=(Users)session.getAttribute("current");
 				</div>
 			</div>
 
-
+<%-- 
 			<div class="col-md-2 text-center">
 				<div class="card">
 					<div class="card-body">
@@ -76,7 +76,7 @@ Users user=(Users)session.getAttribute("current");
 
 					</div>
 				</div>
-			</div>
+			</div> --%>
 
 
 

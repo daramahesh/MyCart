@@ -68,6 +68,8 @@ List<Product> mm = pdao.getAllProductsById(id1);
 				<div class="row mt-4">
 
 					<div class="col md-12">
+					<div class="col-md-4">
+					
 
 						<div class="card-columns">
 
@@ -83,11 +85,11 @@ List<Product> mm = pdao.getAllProductsById(id1);
 
 								<div class="card-body">
 									<h5 class="card-title">
-										<%=pp.getpDesc()%>
+										<%=pp.getpName()%>
 									</h5>
 
 									<p class="card-text">
-										<%=pp.getpName()%>
+										<%=pp.getpDesc()%>
 
 									</p>
 
@@ -118,7 +120,7 @@ List<Product> mm = pdao.getAllProductsById(id1);
 
 
 					</div>
-
+</div>
 				</div>
 
 
